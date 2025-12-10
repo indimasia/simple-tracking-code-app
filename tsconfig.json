@@ -5,6 +5,11 @@
     // "rootDir": "./src",
     // "outDir": "./dist",
 
+    "baseUrl": "./resources/js",
+    "paths": {
+      "@/*": ["./*"]
+    },
+
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "esnext",
