@@ -19,6 +19,13 @@
     },
     "dependencies": {
         "@inertiajs/react": "^2.2.20",
-        "@vitejs/plugin-react": "^5.1.2"
+        "@radix-ui/react-slot": "^1.2.4",
+        "@tolgee/react": "^6.2.7",
+        "@vitejs/plugin-react": "^5.1.2",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.556.0",
+        "tailwind-merge": "^3.4.0",
+        "tailwindcss-animate": "^1.0.7"
     }
 }
