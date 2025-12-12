@@ -55,11 +55,10 @@ export default function Index({
     }
   };
 
-  // Memoize script execution to avoid re-running on every render
   const scriptResults = useMemo(() => {
     return scripts.map((script) => ({
       id: script.id,
-      result: executeScript(script.script),
+      result: executeScript(JSON.parse(script.script)),
     }));
   }, [isConsentAccepted, scripts]);
 
