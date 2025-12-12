@@ -142,6 +142,7 @@ export default function Form({
               Quick Run
             </Button>
             <Button
+              disabled={!result}
               type="submit"
               className="gap-2 bg-blue-600 hover:bg-blue-700"
             >
