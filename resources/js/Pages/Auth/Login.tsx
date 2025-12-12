@@ -37,7 +37,7 @@ export default function LoginPage() {
           >
             <span className="text-white font-bold text-xl"><Code className="w-5 h-5" /></span>
           </div>
-          <h1 className="text-3xl font-bold text-slate-900"><T keyName={'app-title'}/></h1>
+          <h1 className="text-3xl font-bold text-slate-900">Script Tracker</h1>
           <p className="text-slate-600 text-sm mt-2">
             Manage your tracking codes
           </p>
