@@ -64,3 +64,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #0f172a;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
