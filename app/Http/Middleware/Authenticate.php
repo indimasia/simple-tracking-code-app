@@ -20,7 +20,9 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next, ...$guards): Response
     {
-        $this->authenticate($request, $guards);
+        if (!$this->authenticate($request, $guards)) {
+            return redirect()->route('login.form');
+        }
 
         return $next($request);
     }
@@ -36,12 +38,11 @@ class Authenticate
 
         foreach ($guards as $guard) {
             if ($this->auth()->guard($guard)->check()) {
-                return $this->auth()->shouldUse($guard);
+                return true;
             }
         }
 
-        // User tidak terautentikasi, redirect ke login
-        return redirect()->route('login');
+        return false;
     }
 
     /**

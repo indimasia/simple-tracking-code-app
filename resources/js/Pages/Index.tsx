@@ -15,11 +15,8 @@ export default function Index() {
           </p>
         </div>
 
-        <Link href={route("scripts.index")}>
+        <Link href={route("customer.index")}>
           <Button
-          onClick={() => {
-            router.visit(route("login.form"));
-          }}
             size="lg"
             className="mt-8 gap-2 px-8 bg-blue-600 hover:bg-blue-700 text-white"
           >
