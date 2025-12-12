@@ -2,18 +2,21 @@ import { Button } from "@/components/ui/button";
 import type { Script } from "@/lib/types";
 import Layout from "@/components/Layout";
 import { Plus } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "@/Pages/Scripts/Form";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, router, useForm } from "@inertiajs/react";
 import { route } from "ziggy-js";
 import ScriptCard from "./ScriptCard";
+import { getCookie } from "vanilla-cookieconsent";
 
 export default function Index({
   title,
   scripts,
+  user_id,
 }: {
   title: string;
   scripts: Array<Script>;
+  user_id: number;
 }) {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [result, setResult] = useState("");
@@ -29,11 +32,18 @@ export default function Index({
     delete: destroy,
   } = useForm({
     id: null,
+    user_id: null,
     name: "",
     script: "",
     is_success: null,
   });
 
+  useEffect(() => {
+    const cookieValue = getCookie();
+    
+    console.log(cookieValue);
+  }, []);
+  
   const onScriptCodeChange = (value: string) => {
     setData("script", value);
   };
@@ -49,6 +59,7 @@ export default function Index({
   };
 
   const handleOpenAddDialog = () => {
+    setData("user_id", user_id);
     setSelectedId(null);
     setResult("");
     setDialogOpen(true);
@@ -56,6 +67,7 @@ export default function Index({
 
   const handleOpenEditDialog = (item: Script) => {
     setSelectedId(item.id);
+    setData("user_id", item.user_id);
     setData("name", item.name);
     setData("script", JSON.parse(item.script));
     setData("is_success", item.is_success);
